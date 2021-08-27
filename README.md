@@ -1,4 +1,4 @@
-# Typescript Library Boilerplate
+# wasm-loader
 
 ![Lint](https://github.com/playerony/typescript-library-boilerplate/workflows/lint/badge.svg)
 ![Test](https://github.com/playerony/typescript-library-boilerplate/workflows/test/badge.svg)
@@ -7,7 +7,7 @@
 ![Typecheck](https://github.com/playerony/typescript-library-boilerplate/workflows/typecheck/badge.svg)
 ![Commitlint](https://github.com/playerony/typescript-library-boilerplate/workflows/commitlint/badge.svg)
 
-Minimal boilerplate for Typescript libraries.
+Wrapper for @assemblyscript/loader package to support older versions of Safari (desktop [3.1 - 14.1] / mobile [11 - 14.7])
 
 ## 📖 Table of Contents
 
