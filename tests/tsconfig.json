@@ -3,7 +3,7 @@
   "references": [
     {
       "path": "..",
-      "name": "typescript-library-boilerplate"
+      "name": "wasm-loader"
     }
   ],
   "compilerOptions": {
