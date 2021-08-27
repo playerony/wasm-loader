@@ -1,14 +1,14 @@
 {
-  "name": "typescript-library-boilerplate",
+  "name": "wasm-loader",
   "version": "1.0.0",
-  "description": "Minimal boilerplate for Typescript libraries",
+  "description": "Wrapper for @assemblyscript/loader package to support older versions of Safari (desktop [3.1 - 14.1] / mobile [11 - 14.7]).",
   "license": "MIT",
   "author": "Paweł Wojtasiński",
-  "repository": "git@github.com:playerony/typescript-library-boilerplate.git",
+  "repository": "git@github.com:playerony/wasm-loader.git",
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc",
-    "build:docs": "yarn build && yarn docs:api-extractor && yarn docs:api-documenter",
+    "build:docs": "yarn run build && yarn run docs:api-extractor && yarn run docs:api-documenter",
     "check": "yarn lint && yarn typecheck && yarn format:check && yarn test && yarn commitlint && yarn build",
     "commitlint": "commitlint -- --from=main",
     "dev": "yarn build --watch --preserveWatchOutput",
@@ -32,6 +32,9 @@
     "typecheck": "tsc --noEmit"
   },
   "types": "dist/index.d.ts",
+  "dependencies": {
+    "@assemblyscript/loader": "^0.19.11"
+  },
   "devDependencies": {
     "@babel/preset-env": "^7.14.9",
     "@babel/preset-typescript": "^7.14.5",
