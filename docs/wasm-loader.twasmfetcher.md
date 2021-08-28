@@ -9,10 +9,10 @@ Asynchronously instantiates an AssemblyScript module from anything that can be i
 <b>Signature:</b>
 
 ```typescript
-export declare type TWasmFetcher = (
+export declare type TWasmFetcher = <T extends Record<string, unknown>>(
   path: string,
   imports?: TImports,
-) => Promise<loader.ASUtil | Record<string, unknown>>;
+) => Promise<loader.ASUtil & T>;
 ```
 
 <b>References:</b> [TImports](./wasm-loader.timports.md)

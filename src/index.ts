@@ -16,10 +16,10 @@ export type TImports = loader.Imports | undefined;
  *
  * @public
  */
-export type TWasmFetcher = (
+export type TWasmFetcher = <T extends Record<string, unknown>>(
   path: string,
   imports?: TImports,
-) => Promise<loader.ASUtil | Record<string, unknown>>;
+) => Promise<loader.ASUtil & T>;
 
 /**
  * Closure wrapper to allow user to keep a default imports configuration in memory.
@@ -40,11 +40,14 @@ function wasmLoader(defaultImports?: TImports): TWasmFetcher {
    *
    * @@internal
    */
-  async function wasmFallback(path: string, imports: TImports = defaultImports) {
+  async function wasmFallback<T extends Record<string, unknown>>(
+    path: string,
+    imports: TImports = defaultImports,
+  ): Promise<loader.ASUtil & T> {
     const response = await fetch(path);
     const bytes = await response.arrayBuffer();
 
-    const instance = await loader.instantiate(bytes, imports);
+    const instance = await loader.instantiate<T>(bytes, imports);
 
     return instance?.exports;
   }
@@ -57,13 +60,16 @@ function wasmLoader(defaultImports?: TImports): TWasmFetcher {
    *
    * @public
    */
-  async function wasmFetcher(path: string, imports: TImports = defaultImports) {
+  async function wasmFetcher<T extends Record<string, unknown>>(
+    path: string,
+    imports: TImports = defaultImports,
+  ): Promise<loader.ASUtil & T> {
     if (!loader.instantiateStreaming) {
-      return wasmFallback(path, imports);
+      return wasmFallback<T>(path, imports);
     }
 
     const response = await fetch(path);
-    const instance = await loader.instantiateStreaming(response, imports);
+    const instance = await loader.instantiateStreaming<T>(response, imports);
 
     return instance?.exports;
   }
