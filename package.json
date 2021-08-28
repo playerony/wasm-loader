@@ -1,6 +1,6 @@
 {
   "name": "@playerony/wasm-loader",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Wrapper for @assemblyscript/loader package to support older versions of Safari (desktop [3.1 - 14.1] / mobile [11 - 14.7]).",
   "license": "MIT",
   "author": "Paweł Wojtasiński",
