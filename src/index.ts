@@ -4,13 +4,10 @@
 
 import * as loader from '@assemblyscript/loader';
 
+/** WebAssembly imports with an optional env object and two levels of nesting. */
 export type TImports = loader.Imports | undefined;
 
-/**
- * Type of the function return after 'wasmLoader' function call
- *
- * @public
- */
+/** Asynchronously instantiates an AssemblyScript module from anything that can be instantiated. */
 export type TWasmFetcher = (
   path: string,
   imports?: TImports,

@@ -1,84 +1,38 @@
 # wasm-loader
 
-![Lint](https://github.com/playerony/wasm-loader/workflows/lint/badge.svg)
-![Test](https://github.com/playerony/wasm-loader/workflows/test/badge.svg)
-![Build](https://github.com/playerony/wasm-loader/workflows/build/badge.svg)
-![Prettier](https://github.com/playerony/wasm-loader/workflows/prettier/badge.svg)
-![Typecheck](https://github.com/playerony/wasm-loader/workflows/typecheck/badge.svg)
-![Commitlint](https://github.com/playerony/wasm-loader/workflows/commitlint/badge.svg)
+Wrapper for [@assemblyscript/loader](https://www.npmjs.com/package/@assemblyscript/loader) package to support older versions of Safari (desktop [3.1 - 14.1] / mobile [11 - 14.7])
 
-Wrapper for @assemblyscript/loader package to support older versions of Safari (desktop [3.1 - 14.1] / mobile [11 - 14.7])
+---
 
-## 📖 Table of Contents
+- [can I use - instantiate](https://caniuse.com/?search=instantiate)
+- [can I use - instantiateStreaming](https://caniuse.com/?search=instantiateStreaming)
 
-- [✨ Getting started](#user-content--getting-started)
-  - [Prerequisites](#prerequisites)
-  - [Bootstrap](#bootstrap)
-- [📜 Scripts](#user-content--scripts)
-  - [Development](#development)
-  - [Build](#build)
-  - [Shell](#shell)
-  - [Test](#test)
-  - [Analyze](#analyze)
-- [📚 Documentation](#user-content--documentation)
-  - [Commit Message Guideline](#commit-message-guideline)
+---
 
-## ✨ Getting started
+# Installation ([npm](https://www.npmjs.com/package/@playerony/wasm-loader))
 
-### Prerequisites
-
-You need to have installed the following software:
-
-- [nodejs](https://nodejs.org/en/) (>=14.15.0)
-- [yarn](https://yarnpkg.com/) (>= 1.22.10)
-
-### Bootstrap
-
-```bash
-  git clone --depth 1 https://github.com/playerony/typescript-library-boilerplate my-lib
-  cd my-lib
-  yarn install
+```
+npm i @playerony/wasm-loader
 ```
 
-## 📜 Scripts:
+```
+yarn add @playerony/wasm-loader
+```
 
-### Development
+# Usage
 
-- `dev` - Run application in development mode.
+```js
+import getWasmLoader from '@playerony/wasm-loader';
 
-### Build
+const defaultImports = {
+  index: {
+    log(valueA, valueB) {
+      console.log(valueA, valueB);
+    },
+  },
+};
 
-- `build` - Build for production a ready application.
-- `build:docs` - Build api-documentor markdown documentation.
+const wasmLoader = getWasmLoader(defaultImports);
 
-### Shell
-
-- `remove-node-modules` - Remove node_modules directory with rimraf command.
-- `reinstall-node-modules` - Invokes `remove-node-modules` and `yarn install`.
-- `gcb` - (git-create-branch) Create and checkout on the branch with the given name.
-- `gpc` - (git-push-changes) Commit and push all files on a current branch with the given commit message.
-
-### Test
-
-- `test` - Run tests.
-- `test:ci` - Run tests in CI mode.
-- `test:watch` - Run tests in watch mode.
-- `test:coverage` - Run tests in coverage mode.
-- `test:update-snapshot`: Run tests and update all snapshots.
-
-### Analyze
-
-- `lint` - Run `eslint`. Output any errors 🚨.
-- `lint:fix` - Run `eslint` with `--fix`flag . Fix any lint errors 🚨.
-- `typecheck` - Run `tsc`. Output any errors 🚨.
-- `commitlint` - Run `commitlint`. Output any errors 🚨.
-- `format` - Run `prettier` with `--write` flag. Format all the files.
-- `format:check` - Run `prettier` with `--check` flag. Output any format errors 🚨.
-- `check` - Run `lint`, `test`, `build`, `typecheck`, `commitlint` and `format:check`. Output any errors 🚨.
-
-## 📚 Documentation
-
-### Commit Message Guideline
-
-- For easier commit type recognition commit messages are prefixed with a proper type
-- See available commit types: [https://www.npmjs.com/package/@commitlint/config-conventional](https://www.npmjs.com/package/@commitlint/config-conventional)
+const { memory, ...otherPropsYouDefinedInWasmFile } = await wasmLoader('/build/optimized.wasm');
+```
