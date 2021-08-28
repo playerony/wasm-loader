@@ -6,6 +6,6 @@
 
 ## Packages
 
-| Package                         | Description                                                                                                                            |
-| ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
-| [wasm-loader](./wasm-loader.md) | Wrapper for @<!-- -->assemblyscript/loader package to support older versions of Safari (desktop \[3.1 - 14.1\] / mobile \[11 - 14.7\]) |
+| Package                                    | Description                                                                                                                             |
+| ------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------- |
+| [@playerony/wasm-loader](./wasm-loader.md) | Wrapper for @<!-- -->assemblyscript/loader package to support older versions of Safari (desktop \[3.1 - 14.1\] / mobile \[11 - 14.7\]). |

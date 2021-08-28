@@ -23,7 +23,7 @@
   "overrides": [
     {
       "env": { "jest": true, "node": true },
-      "files": ["tests/**/*.ts", "commitlint.config.js"]
+      "files": ["commitlint.config.js"]
     }
   ]
 }
