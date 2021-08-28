@@ -1,15 +1,14 @@
 {
   "name": "@playerony/wasm-loader",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Wrapper for @assemblyscript/loader package to support older versions of Safari (desktop [3.1 - 14.1] / mobile [11 - 14.7]).",
   "license": "MIT",
   "author": "Paweł Wojtasiński",
   "repository": "git@github.com:playerony/wasm-loader.git",
   "main": "dist/index.js",
   "scripts": {
-    "build": "yarn build:clean && tsc",
-    "build:clean": "npx rimraf dist",
-    "build:docs": "yarn build && yarn docs:api-extractor && yarn docs:api-documenter",
+    "build": "npx rimraf dist && npx rimraf tsconfig.tsbuildinfo && tsc",
+    "build:docs": "yarn run build && yarn run docs:api-extractor && yarn run docs:api-documenter",
     "check": "yarn lint && yarn typecheck && yarn format:check && yarn commitlint && yarn build",
     "commitlint": "commitlint -- --from=main",
     "dev": "yarn build --watch --preserveWatchOutput",
