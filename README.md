@@ -4,7 +4,14 @@ Wrapper for [@assemblyscript/loader](https://www.npmjs.com/package/@assemblyscri
 
 ---
 
+- [API Docs](https://playerony.github.io/wasm-loader)
+
+---
+
+---
+
 - [can I use - instantiate](https://caniuse.com/?search=instantiate)
+
 - [can I use - instantiateStreaming](https://caniuse.com/?search=instantiateStreaming)
 
 ---
@@ -12,11 +19,15 @@ Wrapper for [@assemblyscript/loader](https://www.npmjs.com/package/@assemblyscri
 # Installation ([npm](https://www.npmjs.com/package/@playerony/wasm-loader))
 
 ```
+
 npm i @playerony/wasm-loader
+
 ```
 
 ```
+
 yarn add @playerony/wasm-loader
+
 ```
 
 # Usage
